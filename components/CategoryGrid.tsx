@@ -9,13 +9,13 @@ type CategoryProps = {
 function CategoryGrid({ item }: CategoryProps) {
   return (
     <View
-      style={[styles.gridItem, { backgroundColor: item.color }]}
+      style={[styles.gridItem]}
     >
       <Pressable
         style={({ pressed }) => pressed ? [styles.button, styles.buttonPressed] : styles.button}
         android_ripple={{ color: '#ccc' }}
       >
-        <View style={styles.innerContainer}>
+        <View style={[styles.innerContainer, { backgroundColor: item.color}]}>
           <Text>{item.title}</Text>
         </View>
       </Pressable>
@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 16,
     height: 150,
-    borderRadius: 8,
     elevation: 8,
     backgroundColor: '#fff',
     shadowColor: 'black',
@@ -48,6 +47,7 @@ const styles = StyleSheet.create({
     padding: 16,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 8,
   },
 });
 
