@@ -8,7 +8,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'MealDetail'>;
 function MealDetail({route}: Props) {
   const { meal } = route.params
   return (
-      <Text>{meal.title}</Text>
+      <Text>{JSON.stringify(meal, null, 2)}</Text>
   )
 }
 
