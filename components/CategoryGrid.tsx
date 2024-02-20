@@ -4,9 +4,10 @@ import { Category } from '../screens/CategoriesScreen';
 
 type CategoryProps = {
   item: Category;
+  onPress: () => void;
 };
 
-function CategoryGrid({ item }: CategoryProps) {
+function CategoryGrid({ item, onPress }: CategoryProps) {
   return (
     <View
       style={[styles.gridItem]}
@@ -14,6 +15,7 @@ function CategoryGrid({ item }: CategoryProps) {
       <Pressable
         style={({ pressed }) => pressed ? [styles.button, styles.buttonPressed] : styles.button}
         android_ripple={{ color: '#ccc' }}
+        onPress={onPress}
       >
         <View style={[styles.innerContainer, { backgroundColor: item.color}]}>
           <Text>{item.title}</Text>
@@ -34,6 +36,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowOffset: { height: 2, width: 0 },
     shadowRadius: 8,
+    borderRadius: 8,
     overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
   },
   button: {
